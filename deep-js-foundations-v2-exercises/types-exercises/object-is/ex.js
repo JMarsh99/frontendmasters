@@ -1,5 +1,17 @@
 // TODO: define polyfill for `Object.is(..)`
+// Just adding polyfill pattern for fun
+if (!Object.is || true) {
+    Object.is = function(value1, value2) {
+        if (Number.isNaN(value1) && Number.isNaN(value2)) {
+            return true
+        }
+        if (value1 == 0 && value2 == 0) {
+            return 1 / value1 === 1 / value2
+        }
 
+        return value1 === value2
+    }
+}
 
 
 // tests:
